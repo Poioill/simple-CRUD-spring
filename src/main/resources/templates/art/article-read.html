@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div th:insert="block/header :: header"></div>
+    <div th:each="el : ${art}">
+        <h2 th:text="${el.title}"></h2>
+        <p th:text="${el.description}"></p>
+        <form method="post" th:action="'/articles/' + ${el.id} + '/delete'">
+            <button type="submit">Delete</button>
+        </form>
+        <a th:href="'/articles/' + ${el.id} + '/edit'">Update</a>
+    </div>
+</body>
+</html>
