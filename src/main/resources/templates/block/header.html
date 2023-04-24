@@ -1,21 +1,31 @@
 <div th:fragment="header">
   <h1>HELLO</h1>
   <h3>Navigation</h3>
-  <ul>
-    <li>
-      <a href="/">Like a logo</a>
-    </li>
-    <li>
-      <a href="/regions">Regions</a>
-    </li>
-    <li>
-      <a href="/tours">Tours</a>
-    </li>
-    <li>
-      <a href="/about">About us</a>
-    </li>
-    <li>
-      <a href="/articles">Articles</a>
-    </li>
-  </ul>
+  <nav class="header__wrap">
+    <ul class="header__list">
+      <li class="header__list-item">
+        <a href="" class="list-item">Contacts</a>
+      </li>
+      <li class="header__list-item">
+        <a href="/tour" class="list-item">Tours</a>
+      </li>
+      <li class="header__list-item">
+        <a href="/" class="list-item">Regions &bigtriangledown;</a>
+        <ul>
+          <li th:each="el : ${rego}">
+            <a th:href="'/region/' + ${el.id}"><span th:text="${el.regionName}"/></a>
+          </li>
+<!--          <li><a href="/">Naryn</a></li>-->
+<!--          <li><a href="/">Isyk-Kul</a></li>-->
+<!--          <li><a href="/">Osh</a></li>-->
+<!--          <li><a href="/">Talas</a></li>-->
+<!--          <li><a href="/">Batken</a></li>-->
+<!--          <li><a href="/">Jalal-Abad</a></li>-->
+        </ul>
+      </li>
+      <li class="header__list-item">
+        <a href="/articles" class="list-item">Articles</a>
+      </li>
+    </ul>
+  </nav>
 </div>

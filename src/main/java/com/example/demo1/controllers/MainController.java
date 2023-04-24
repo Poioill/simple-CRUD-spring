@@ -1,6 +1,8 @@
 package com.example.demo1.controllers;
 
+import com.example.demo1.models.Region;
 import com.example.demo1.models.Tour;
+import com.example.demo1.repositories.RegionRepo;
 import com.example.demo1.repositories.TourRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,15 +18,14 @@ import java.util.List;
 public class MainController {
     @Autowired
     private TourRepo tourRepo;
+    @Autowired
+    private RegionRepo regionRepo;
 
     @GetMapping("/")
     public String main(Model model){
-        model.addAttribute("title", "Hello world");
+        Iterable<Region> rego = regionRepo.findAll();
+        model.addAttribute("rego", rego);
         return "main";
-    }
-    @GetMapping("/regions")
-    public String regions(Model model){
-        return "regions";
     }
     @GetMapping("/tours")
     public String tours(Model model){

@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:insert="block/head :: head"/>
 <body>
-    <p th:text="${title}"></p>
     <div th:insert="block/header :: header"/>
     <p>It is mane page</p>
+    <div th:insert="block/footer :: footer"/>
 </body>
 </html>

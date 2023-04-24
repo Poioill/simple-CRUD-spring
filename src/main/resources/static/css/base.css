@@ -1,0 +1,13 @@
+.header__list-item:hover > ul {
+    display: initial;
+  }
+.header__list-item ul {
+    position: absolute;
+    width: 180px;
+    background: #102746;
+    display: none;
+  }
+  .header__list-item ul li {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }

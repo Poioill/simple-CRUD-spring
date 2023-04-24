@@ -1,7 +1,9 @@
 package com.example.demo1.controllers;
 
 import com.example.demo1.models.Articles;
+import com.example.demo1.models.Region;
 import com.example.demo1.repositories.ArticlesRepo;
+import com.example.demo1.repositories.RegionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,8 @@ import java.util.Optional;
 public class ArticlesController {
     @Autowired
     private ArticlesRepo articlesRepo;
+    @Autowired
+    private RegionRepo regionRepo;
 
     @PostMapping("/articles")
     public String articles(@RequestParam String title, @RequestParam String text, Model model){
@@ -27,7 +31,9 @@ public class ArticlesController {
     @GetMapping("/articles")
     public String articles(Model model){
         Iterable<Articles> art = articlesRepo.findAll();
+        Iterable<Region> rego = regionRepo.findAll();
         model.addAttribute("art", art);
+        model.addAttribute("rego", rego);
         return "articles";
     }
     @GetMapping("/articles/{id}")
