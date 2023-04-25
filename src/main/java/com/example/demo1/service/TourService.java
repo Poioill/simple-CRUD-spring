@@ -9,17 +9,22 @@ import java.util.List;
 @Service
 public class TourService {
     private List<Tour> tours = new ArrayList<>();
+    private long ID = 0;
 
     {
-        tours.add(new Tour(1L, "Sary chelek", "On chui. cool place", "Chui", "Elena"));
-        tours.add(new Tour(2L, "Son Kol", "On IK. cool place", "IK", "Alina"));
+        tours.add(new Tour(++ID, "Sary chelek", "On chui. cool place", "Chui", "Elena"));
+        tours.add(new Tour(++ID, "Son Kol", "On IK. cool place", "IK", "Alina"));
     }
-    public List<Tour> listTours(){
+
+    public List<Tour> listTours() {
         return tours;
     }
-    public void saveTour(Tour tour){
+
+    public void saveTour(Tour tour) {
+        tour.setId(++ID);
         tours.add(tour);
     }
-
-
+    public void deleteTour(Long id){
+        tours.removeIf(tour -> tour.getId().equals(id));
+    }
 }

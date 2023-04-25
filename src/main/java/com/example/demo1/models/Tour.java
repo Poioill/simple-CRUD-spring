@@ -12,7 +12,7 @@ import lombok.*;
 public class Tour {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
     private String title;
     private String description;

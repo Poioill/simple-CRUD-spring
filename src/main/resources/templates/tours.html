@@ -3,7 +3,17 @@
       xmlns:th="http://www.thymeleaf.org">
 <head th:insert="block/head :: head"/>
 <body>
-<div th:insert="block/header :: header"/>
+    <div th:insert="block/header :: header"/>
     <p>It is tours page</p>
+    <div th:each="el : ${dada}">
+        <p th:text="${el.title}"></p>
+    </div>
+    <form action="/tour/add" method="post">
+        <input type="text" name="title">
+        <input type="text" name="description">
+        <input type="text" name="region">
+        <input type="text" name="author">
+        <input type="submit" />
+    </form>
 </body>
 </html>
